@@ -1,0 +1,129 @@
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #202020;
+	padding: 9.6px 11.2px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+}
+
+.btn_container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.close_btn {
+	color: #f0efed;
+	font-size: 11px;
+	font-weight: 300;
+	padding: 0 13px;
+	height: 30px;
+	background-color: var(--text-color);
+	border: none;
+	border-radius: 15px;
+}
+
+.list {
+	width: 100%;
+	text-align: center;
+	margin-top: 100px;
+}
+
+.list_item {
+	color: #f0efed;
+	text-decoration: none;
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.request_btn {
+	position: relative;
+	z-index: 1;
+	background-color: #b64b4b;
+	color: #f0efed;
+	text-decoration: none;
+	width: fit-content;
+	margin: auto;
+	font-size: 12px;
+	padding: 10px 15px;
+}
+
+.nav_footer {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	padding-bottom: 40px;
+}
+
+.nav_footer::before {
+	position: absolute;
+	z-index: 0;
+	top: -20px;
+	content: 'HARDA TATTOO';
+	font-size: 86px;
+	font-weight: 800;
+	text-align: center;
+	line-height: 65px;
+}
+
+.social_container {
+	position: relative;
+	z-index: 1;
+	padding: 5px;
+	text-decoration: none;
+	background-color: #1c1c1c;
+	border: #696867 1px solid;
+	width: fit-content;
+}
+
+.social_label {
+	color: #696867;
+	font-size: 12px;
+}
+
+.social {
+	color: #f0efed;
+	font-size: 14px;
+}
+
+@media (width > 425px) {
+	.close_btn {
+		font-size: 14px;
+	}
+	.list_item {
+		font-size: 40px;
+	}
+	.request_btn {
+		font-size: 15px;
+	}
+	.social_label {
+		font-size: 14px;
+	}
+	.social {
+		font-size: 18px;
+	}
+	.nav_footer::before {
+		font-size: 112px;
+	}
+}
+
+@media (width > 768px) {
+	.list_item {
+		font-size: 44px;
+	}
+	.request_btn {
+		font-size: 16px;
+	}
+	.nav_footer::before {
+		font-size: 136px;
+		line-height: 112px;
+	}
+}

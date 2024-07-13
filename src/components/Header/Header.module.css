@@ -1,0 +1,24 @@
+.header {
+	position: fixed;
+	padding: 9.6px 11.2px;
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.open_button {
+	color: var(--text-color);
+	font-size: 11px;
+	font-weight: 300;
+	padding: 0 13px;
+	height: 30px;
+	background-color: #f0efed;
+	border: none;
+	border-radius: 15px;
+}
+
+@media (width > 425px) {
+	.open_button {
+		font-size: 14px;
+	}
+}
