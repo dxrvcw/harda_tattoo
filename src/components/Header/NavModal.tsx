@@ -39,7 +39,7 @@ export function NavModal({ setOpen }: INavModalProps) {
 						<li>
 							<a
 								className={styles.list_item}
-								href='#'
+								href='#about'
 								onClick={() => setIsVisible(false)}
 							>
 								ABOUT
@@ -48,7 +48,7 @@ export function NavModal({ setOpen }: INavModalProps) {
 						<li>
 							<a
 								className={styles.list_item}
-								href='#'
+								href='#portfolio'
 								onClick={() => setIsVisible(false)}
 							>
 								PORTFOLIO
@@ -57,7 +57,7 @@ export function NavModal({ setOpen }: INavModalProps) {
 						<li>
 							<a
 								className={styles.list_item}
-								href='#'
+								href='#reviews'
 								onClick={() => setIsVisible(false)}
 							>
 								REVIEWS
@@ -66,7 +66,7 @@ export function NavModal({ setOpen }: INavModalProps) {
 						<li>
 							<a
 								className={styles.list_item}
-								href='#'
+								href='#pre-care'
 								onClick={() => setIsVisible(false)}
 							>
 								PRE-CARE
@@ -75,7 +75,7 @@ export function NavModal({ setOpen }: INavModalProps) {
 						<li>
 							<a
 								className={styles.list_item}
-								href='#'
+								href='#contact'
 								onClick={() => setIsVisible(false)}
 							>
 								CONTACT

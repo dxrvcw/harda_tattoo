@@ -1,4 +1,5 @@
 import { Header } from '@/components/Header/Header'
+import { HeaderFixed } from '@/components/Header/HeaderFixed'
 import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
 import './globals.css'
@@ -19,6 +20,7 @@ export default function RootLayout({
 		<html lang='uk'>
 			<body className={dmSans.className}>
 				<Header />
+				<HeaderFixed />
 				{children}
 			</body>
 		</html>

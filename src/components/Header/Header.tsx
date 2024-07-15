@@ -19,11 +19,11 @@ export function Header() {
 			</button>
 
 			<ul className={styles.list}>
-				<AnimatedLink href='#'>ABOUT</AnimatedLink>
-				<AnimatedLink href='#'>PORTFOLIO</AnimatedLink>
-				<AnimatedLink href='#'>REVIEWS</AnimatedLink>
-				<AnimatedLink href='#'>PRE-CARE</AnimatedLink>
-				<AnimatedLink href='#'>CONTACT</AnimatedLink>
+				<AnimatedLink href='#about'>ABOUT</AnimatedLink>
+				<AnimatedLink href='#portfolio'>PORTFOLIO</AnimatedLink>
+				<AnimatedLink href='#reviews'>REVIEWS</AnimatedLink>
+				<AnimatedLink href='#pre-care'>PRE-CARE</AnimatedLink>
+				<AnimatedLink href='#contact'>CONTACT</AnimatedLink>
 			</ul>
 
 			{isModalOpen &&

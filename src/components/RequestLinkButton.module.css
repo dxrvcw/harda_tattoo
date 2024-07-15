@@ -11,7 +11,7 @@
 	z-index: 1;
 	font-size: 11px;
 	font-weight: 500;
-	color: #b64b4b;
+	color: var(--accent-color);
 	transition: all 0.3s;
 }
 
@@ -23,7 +23,7 @@
 	left: 0;
 	width: 100%;
 	height: 0%;
-	background-color: #b64b4b;
+	background-color: var(--accent-color);
 	transition: all 0.3s;
 }
 

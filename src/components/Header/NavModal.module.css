@@ -1,9 +1,10 @@
 .modal {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
+	z-index: 1;
 	width: 100vw;
-	height: 100vh;
+	height: 100dvh;
 	background-color: #202020;
 	padding: 9.6px 11.2px;
 	display: flex;
@@ -44,7 +45,7 @@
 .request_btn {
 	position: relative;
 	z-index: 1;
-	background-color: #b64b4b;
+	background-color: var(--accent-color);
 	color: #f0efed;
 	text-decoration: none;
 	width: fit-content;
