@@ -1,6 +1,6 @@
 .header {
 	position: fixed;
-	padding: 9.6px 11.2px;
+	padding-top: 9.6px;
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
@@ -17,8 +17,25 @@
 	border-radius: 15px;
 }
 
-@media (width > 425px) {
+.list {
+	display: none;
+	list-style: none;
+}
+
+@media (width >= 425px) {
 	.open_button {
-		font-size: 14px;
+		font-size: 13px;
+	}
+}
+
+@media (width >= 1024px) {
+	.open_button {
+		display: none;
+	}
+	.list {
+		display: block;
+	}
+	.header {
+		position: static;
 	}
 }
