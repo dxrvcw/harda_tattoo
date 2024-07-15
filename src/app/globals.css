@@ -2,7 +2,6 @@
 	--text-color: #323232;
 	--background-color: #f9f8f6;
 	--accent-color: #b64c4c;
-
 	background-color: var(--background-color);
 	color: var(--text-color);
 	scroll-behavior: smooth;
