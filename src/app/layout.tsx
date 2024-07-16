@@ -8,7 +8,8 @@ const dmSans = DM_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: 'Harda Tattoo',
-	description: '',
+	description:
+		'Discover Sofia Harda portfolio featuring unique, personalized freehand and freestyle tattoos. Send your tattoo request directly for a seamless experience. Explore now!',
 }
 
 export default function RootLayout({

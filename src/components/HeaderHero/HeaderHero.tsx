@@ -10,10 +10,11 @@ export function HeaderHero() {
 			<Image
 				className={styles.background_image}
 				alt='Background image'
-				src='/flower.png'
-				width={500}
-				height={750}
+				src='/flower_tree.png'
+				width={1200}
+				height={1200}
 			/>
+
 			<div className={styles.header_hero_title}>
 				<p className={styles.title_text}>
 					I FEEL YOUR ENERGY AND TRANSFER IT TO THE MOST EXPENSIVE CANVAS IN THE

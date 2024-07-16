@@ -12,7 +12,7 @@ export function NavModal({ setOpen }: INavModalProps) {
 
 	useEffect(() => {
 		if (!isVisible) {
-			setTimeout(() => setOpen(false), 300)
+			setTimeout(() => setOpen(false), 500)
 		}
 	}, [isVisible, setOpen])
 
@@ -23,7 +23,7 @@ export function NavModal({ setOpen }: INavModalProps) {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
-					transition={{ duration: 0.3, type: 'spring' }}
+					transition={{ duration: 0.5, type: 'spring' }}
 					className={styles.modal}
 				>
 					<div className={styles.btn_container}>

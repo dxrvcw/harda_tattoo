@@ -1,16 +1,18 @@
 import Image from 'next/image'
+import { GrowingImage } from '../GrowingImage'
 import styles from './About.module.css'
 
 export function About() {
 	return (
 		<section id='about' className={styles.about_container}>
 			<p className={styles.about_title}>ABOUT ME</p>
-			<Image
+			<GrowingImage
 				src={'/me.jpg'}
 				alt='Portrait of me'
 				height={400}
 				width={300}
 				className={styles.portrait}
+				inset={[50, 50, 50, 50]}
 			/>
 			<Image
 				src={'/hey.svg'}

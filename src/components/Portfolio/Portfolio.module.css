@@ -1,0 +1,272 @@
+.portfolio_container {
+	margin-top: 5px;
+	display: grid;
+	column-gap: 10px;
+	row-gap: 50px;
+	grid-template-columns: repeat(6, 1fr);
+	position: relative;
+}
+
+.circle_background {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	aspect-ratio: 1/1;
+	width: 150%;
+	min-width: 1200px;
+	max-width: 2500px;
+	height: auto;
+	border: 1px solid #32323244;
+	border-radius: 50%;
+}
+
+.portfolio_title {
+	font-size: 11px;
+	font-weight: 500;
+	width: 100%;
+	text-align: right;
+	grid-column: 6;
+}
+
+.flowers_tattoo,
+.clock_tattoo,
+.dog_tattoo,
+.cat_tattoo,
+.samurai_tattoo,
+.scarab_tattoo,
+.hope_tattoo,
+.text_tattoo,
+.moon_tattoo {
+	position: relative;
+	z-index: 2;
+}
+
+.flowers_tattoo {
+	grid-column: 1/7;
+}
+
+.clock_tattoo {
+	grid-column: 2/7;
+}
+
+.dog_tattoo {
+	grid-column: 2/6;
+}
+
+.cat_tattoo {
+	grid-column: 1/6;
+}
+
+.samurai_tattoo {
+	grid-column: 1/7;
+}
+
+.illustration {
+	grid-column: 1/7;
+	max-width: 400px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+}
+
+.illustration_image {
+	width: 70px;
+	height: 70px;
+	rotate: 45deg;
+}
+
+.illustration_text {
+	text-align: center;
+	font-size: 14px;
+	letter-spacing: -0.15px;
+}
+
+.scarab_tattoo {
+	grid-column: 1/6;
+}
+
+.hope_tattoo {
+	grid-column: 2/6;
+}
+
+.text_tattoo {
+	grid-column: 3/7;
+}
+
+.moon_tattoo {
+	grid-column: 1/5;
+}
+
+@media (width >= 425px) {
+	.portfolio_container {
+		margin-top: 10px;
+	}
+	.portfolio_title {
+		font-size: 11px;
+	}
+	.cat_tattoo,
+	.flowers_tattoo {
+		grid-column: 1/5;
+	}
+	.clock_tattoo,
+	.samurai_tattoo {
+		grid-column: 3/7;
+	}
+}
+
+@media (width >= 530px) {
+	.dog_tattoo {
+		grid-column: 2/6;
+	}
+	.cat_tattoo,
+	.flowers_tattoo {
+		grid-column: 1/4 span;
+	}
+	.clock_tattoo,
+	.samurai_tattoo {
+		grid-column: 4/7;
+	}
+	.text_tattoo {
+		grid-column: 1/5;
+	}
+	.moon_tattoo {
+		grid-column: 4/7;
+	}
+}
+
+@media (width >= 680px) {
+	.dog_tattoo {
+		grid-column: 3/6;
+	}
+	.scarab_tattoo {
+		grid-column: 1/4 span;
+	}
+	.hope_tattoo {
+		grid-column: 4/7;
+	}
+	.text_tattoo {
+		grid-column: 1/4 span;
+	}
+}
+
+@media (width >= 768px) {
+	.portfolio_title {
+		font-size: 12px;
+	}
+	.portfolio_container {
+		margin-top: 15px;
+		row-gap: 70px;
+	}
+	.illustration_text {
+		font-size: 16px;
+	}
+	.flowers_tattoo {
+		grid-column: 1/4;
+		grid-row: 2/4;
+	}
+	.clock_tattoo {
+		grid-column: 4/6;
+		grid-row: 2/3;
+	}
+	.dog_tattoo {
+		grid-row: 4/5;
+		grid-column: 3/5;
+	}
+	.cat_tattoo {
+		grid-row: 4/5;
+		grid-column: 5/7;
+	}
+	.samurai_tattoo {
+		grid-row: 5/6;
+		grid-column: 1/4;
+	}
+	.hope_tattoo {
+		grid-row: 7/8;
+		grid-column: 2/4;
+	}
+	.scarab_tattoo {
+		grid-row: 7/9;
+		grid-column: 4/7;
+	}
+	.text_tattoo {
+		grid-row: 9/11;
+		grid-column: 1/4;
+	}
+	.moon_tattoo {
+		grid-row: 9/10;
+		grid-column: 4/6;
+	}
+}
+
+@media (width >= 1024px) {
+	.portfolio_container {
+		margin-top: 20px;
+		row-gap: 100px;
+	}
+	.portfolio_title {
+		font-size: 13px;
+		grid-column: 6;
+	}
+}
+
+@media (width >= 1220px) {
+	.portfolio_container {
+		row-gap: 150px;
+		grid-template-columns: repeat(12, 1fr);
+	}
+	.portfolio_title {
+		grid-column: 12;
+	}
+	.illustration {
+		grid-column: 1/13;
+	}
+	.illustration_image {
+		width: 100px;
+		height: 100px;
+	}
+	.illustration_text {
+		font-size: 18px;
+	}
+	.portfolio_title {
+		font-size: 14px;
+	}
+	.flowers_tattoo {
+		grid-column: 1/6;
+		grid-row: 2/5;
+	}
+	.clock_tattoo {
+		grid-column: 6/9;
+		grid-row: 2/3;
+	}
+	.dog_tattoo {
+		grid-row: 2/3;
+		grid-column: 9/12;
+	}
+	.cat_tattoo {
+		grid-row: 4/5;
+		grid-column: 11/13;
+	}
+	.samurai_tattoo {
+		grid-row: 3/5;
+		grid-column: 8/11;
+	}
+	.hope_tattoo {
+		grid-row: 6/8;
+		grid-column: 7/9;
+	}
+	.scarab_tattoo {
+		grid-row: 6/9;
+		grid-column: 9/12;
+	}
+	.text_tattoo {
+		grid-row: 7/9;
+		grid-column: 2/5;
+	}
+	.moon_tattoo {
+		grid-row: 8/9;
+		grid-column: 5/7;
+	}
+}

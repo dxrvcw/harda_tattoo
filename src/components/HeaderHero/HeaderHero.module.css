@@ -36,8 +36,10 @@
 
 .background_image {
 	position: absolute;
-	top: -450px;
-	left: -200px;
+	top: -50px;
+	left: -0px;
+	width: 300px;
+	height: 300px;
 	pointer-events: none;
 }
 
@@ -60,6 +62,10 @@
 }
 
 @media (width >= 425px) {
+	.background_image {
+		width: 400px;
+		height: 400px;
+	}
 	.title_text {
 		font-size: 14px;
 	}
@@ -74,8 +80,10 @@
 
 @media (width >= 768px) {
 	.background_image {
-		top: -400px;
-		left: -150px;
+		width: 500px;
+		height: 500px;
+		top: -100px;
+		left: -100px;
 	}
 	.footer_title {
 		font-size: 120px;
@@ -87,6 +95,12 @@
 }
 
 @media (width >= 1024px) {
+	.background_image {
+		width: 600px;
+		height: 600px;
+		top: -150px;
+		left: -50px;
+	}
 	.title_text {
 		font-size: 15px;
 	}
@@ -98,19 +112,26 @@
 		line-height: 115px;
 	}
 	.spacer {
-		height: 240px;
+		height: 200px;
 	}
 }
 @media (width >= 1220px) {
+	.background_image {
+		width: 720px;
+		height: 720px;
+		top: -190px;
+		left: 0px;
+		rotate: 5deg;
+	}
 	.spacer {
-		height: 350px;
+		height: 300px;
 	}
 	.title_text {
 		font-size: 20px;
 	}
 	.footer_title {
-		font-size: 224px;
-		line-height: 170px;
+		font-size: 200px;
+		line-height: 150px;
 	}
 	.footer_second_title {
 		font-size: 14px;
