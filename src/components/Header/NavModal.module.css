@@ -2,7 +2,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 5;
 	width: 100vw;
 	height: 100dvh;
 	background-color: #202020;
@@ -19,6 +19,8 @@
 }
 
 .close_btn {
+	position: relative;
+	z-index: 100;
 	color: #f0efed;
 	font-size: 11px;
 	font-weight: 300;
