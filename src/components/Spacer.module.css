@@ -1,4 +1,5 @@
 .spacer {
+	pointer-events: none;
 	width: 100%;
 	border-bottom: 1px solid var(--text-color);
 	opacity: 0.3;

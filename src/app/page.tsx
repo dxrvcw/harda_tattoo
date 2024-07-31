@@ -18,6 +18,7 @@ export default function Home() {
 			<Approach />
 			<Spacer height={70} />
 			<PreCare />
+			<Spacer height={250} />
 		</main>
 	)
 }
