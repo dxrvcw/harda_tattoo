@@ -11,8 +11,8 @@ export function HeaderHero() {
 				className={styles.background_image}
 				alt='Background image'
 				src='/flower_tree.png'
-				width={1200}
-				height={1200}
+				width={720}
+				height={720}
 			/>
 
 			<div className={styles.header_hero_title}>

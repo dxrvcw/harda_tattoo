@@ -1,3 +1,4 @@
+import { Footer } from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
 import { HeaderFixed } from '@/components/Header/HeaderFixed'
 import type { Metadata } from 'next'
@@ -23,6 +24,7 @@ export default function RootLayout({
 				<Header />
 				<HeaderFixed />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	)

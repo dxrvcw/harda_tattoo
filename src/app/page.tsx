@@ -5,11 +5,10 @@ import { HeaderHero } from '@/components/HeaderHero/HeaderHero'
 import { Portfolio } from '@/components/Portfolio/Portfolio'
 import { PreCare } from '@/components/PreCare/PreCare'
 import { Spacer } from '@/components/Spacer'
-import styles from './page.module.css'
 
 export default function Home() {
 	return (
-		<main className={styles.main + ' container'}>
+		<main className='container'>
 			<HeaderHero />
 			<Spacer height={100} />
 			<About />

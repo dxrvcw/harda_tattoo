@@ -35,9 +35,11 @@ export function HeaderFixed() {
 			<AnimatedLink href='#contact' className={styles.link_item}>
 				<p className={styles.link_item_text}>CONTACT</p>
 			</AnimatedLink>
-			<Link href='/request' className={styles.link_item + ' ' + styles.link}>
-				<p className={styles.link_item_text}>SEND REQUEST</p>
-			</Link>
+			<li>
+				<Link href='/request' className={styles.link_item + ' ' + styles.link}>
+					<p className={styles.link_item_text}>SEND REQUEST</p>
+				</Link>
+			</li>
 		</motion.ul>
 	)
 }
