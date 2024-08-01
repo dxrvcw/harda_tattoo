@@ -1,0 +1,18 @@
+.animated_div {
+	position: fixed;
+	top: -100vh;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	z-index: 9999;
+	transition: top 1s ease-in-out;
+}
+
+.animated_div.show {
+	top: 0;
+}
+
+.animated_div.hide {
+	top: -100vh;
+}

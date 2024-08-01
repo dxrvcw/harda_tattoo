@@ -16,6 +16,7 @@
 	background-color: #f0efed;
 	border: none;
 	border-radius: 15px;
+	transform: translateX(-10px);
 }
 
 .list {

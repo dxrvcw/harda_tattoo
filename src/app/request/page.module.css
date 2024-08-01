@@ -1,0 +1,30 @@
+.text_container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.text {
+	font-weight: 800;
+	letter-spacing: -5px;
+	line-height: min(21vw, 180px);
+	font-size: min(23vw, 200px);
+	opacity: 0.15;
+}
+
+@media (width >= 768px) {
+	.text {
+		font-size: min(14vw, 230px);
+	}
+	.text_container {
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 30px;
+	}
+}
+
+@media (width >= 1024px) {
+	.text_container {
+		margin-top: 25px;
+	}
+}

@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { TransitionLink } from '../TransitionLink/TransitionLink'
 import styles from './NavModal.module.css'
 
 interface INavModalProps {
@@ -36,48 +36,32 @@ export function NavModal({ setOpen }: INavModalProps) {
 					</div>
 
 					<ul className={styles.list}>
-						<li>
-							<a
-								className={styles.list_item}
-								href='#about'
-								onClick={() => setIsVisible(false)}
-							>
+						<li onClick={() => setIsVisible(false)}>
+							<TransitionLink className={styles.list_item} href='/#about'>
 								ABOUT
-							</a>
+							</TransitionLink>
 						</li>
-						<li>
-							<a
-								className={styles.list_item}
-								href='#portfolio'
-								onClick={() => setIsVisible(false)}
-							>
+						<li onClick={() => setIsVisible(false)}>
+							<TransitionLink className={styles.list_item} href='/#portfolio'>
 								PORTFOLIO
-							</a>
+							</TransitionLink>
 						</li>
 
-						<li>
-							<a
-								className={styles.list_item}
-								href='#pre-care'
-								onClick={() => setIsVisible(false)}
-							>
+						<li onClick={() => setIsVisible(false)}>
+							<TransitionLink className={styles.list_item} href='/#pre-care'>
 								PRE-CARE
-							</a>
+							</TransitionLink>
 						</li>
-						<li>
-							<a
-								className={styles.list_item}
-								href='#contact'
-								onClick={() => setIsVisible(false)}
-							>
+						<li onClick={() => setIsVisible(false)}>
+							<TransitionLink className={styles.list_item} href='/#contact'>
 								CONTACT
-							</a>
+							</TransitionLink>
 						</li>
 					</ul>
 
-					<Link className={styles.request_btn} href={'/request'}>
+					<TransitionLink className={styles.request_btn} href={'/request'}>
 						SEND REQUEST
-					</Link>
+					</TransitionLink>
 
 					<div className={styles.nav_footer}>
 						<a href='#' className={styles.social_container}>

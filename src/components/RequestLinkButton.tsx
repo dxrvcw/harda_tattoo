@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import styles from './RequestLinkButton.module.css'
+import { TransitionLink } from './TransitionLink/TransitionLink'
 
 interface IRequestLinkButton {
 	href: string
@@ -8,10 +8,10 @@ interface IRequestLinkButton {
 
 export function RequestLinkButton({ href, text }: IRequestLinkButton) {
 	return (
-		<Link href={href}>
+		<TransitionLink href={href}>
 			<button className={styles.button}>
 				<p className={styles.button_text}>{text}</p>
 			</button>
-		</Link>
+		</TransitionLink>
 	)
 }

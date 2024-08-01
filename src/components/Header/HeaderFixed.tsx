@@ -1,17 +1,24 @@
 'use client'
 
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
-import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatedLink } from '../AnimatedLink'
+import { TransitionLink } from '../TransitionLink/TransitionLink'
 import styles from './HeaderFixed.module.css'
 
-export function HeaderFixed() {
+export function HeaderFixed({ requiredY }: { requiredY: number }) {
 	const [isShow, setIsShow] = useState(false)
 	const { scrollY } = useScroll()
 
+	useEffect(() => {
+		const initialScrollY = scrollY.get()
+		if (initialScrollY >= requiredY) {
+			setIsShow(true)
+		}
+	}, [requiredY, scrollY])
+
 	useMotionValueEvent(scrollY, 'change', latest => {
-		if (latest > 500) setIsShow(true)
+		if (latest > requiredY) setIsShow(true)
 		else setIsShow(false)
 	})
 
@@ -22,23 +29,26 @@ export function HeaderFixed() {
 			transition={{ duration: 0.5 }}
 			className={styles.header}
 		>
-			<AnimatedLink href='#about' className={styles.link_item}>
+			<AnimatedLink href='/#about' className={styles.link_item}>
 				<p className={styles.link_item_text}>ABOUT</p>
 			</AnimatedLink>
-			<AnimatedLink href='#portfolio' className={styles.link_item}>
+			<AnimatedLink href='/#portfolio' className={styles.link_item}>
 				<p className={styles.link_item_text}>PORTFOLIO</p>
 			</AnimatedLink>
 
-			<AnimatedLink href='#pre-care' className={styles.link_item}>
+			<AnimatedLink href='/#pre-care' className={styles.link_item}>
 				<p className={styles.link_item_text}>PRE-CARE</p>
 			</AnimatedLink>
-			<AnimatedLink href='#contact' className={styles.link_item}>
+			<AnimatedLink href='/#contact' className={styles.link_item}>
 				<p className={styles.link_item_text}>CONTACT</p>
 			</AnimatedLink>
 			<li>
-				<Link href='/request' className={styles.link_item + ' ' + styles.link}>
+				<TransitionLink
+					href='/request'
+					className={styles.link_item + ' ' + styles.link}
+				>
 					<p className={styles.link_item_text}>SEND REQUEST</p>
-				</Link>
+				</TransitionLink>
 			</li>
 		</motion.ul>
 	)

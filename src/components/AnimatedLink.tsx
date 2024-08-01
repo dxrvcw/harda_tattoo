@@ -1,23 +1,18 @@
 import styles from './AnimatedLink.module.css'
+import { TransitionLink } from './TransitionLink/TransitionLink'
 
 interface IAnimatedLink {
 	href: string
 	children: React.ReactNode
 	className?: string
-	type?: string
 }
 
-export function AnimatedLink({
-	className,
-	children,
-	href,
-	type,
-}: IAnimatedLink) {
+export function AnimatedLink({ className, children, href }: IAnimatedLink) {
 	return (
 		<li className={styles.list_item + ' ' + className}>
-			<a href={href} className={styles.link} type={type}>
+			<TransitionLink href={href} className={styles.link}>
 				{children}
-			</a>
+			</TransitionLink>
 		</li>
 	)
 }
