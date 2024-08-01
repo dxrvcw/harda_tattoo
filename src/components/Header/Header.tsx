@@ -21,7 +21,6 @@ export function Header() {
 			<ul className={styles.list}>
 				<AnimatedLink href='#about'>ABOUT</AnimatedLink>
 				<AnimatedLink href='#portfolio'>PORTFOLIO</AnimatedLink>
-				<AnimatedLink href='#reviews'>REVIEWS</AnimatedLink>
 				<AnimatedLink href='#pre-care'>PRE-CARE</AnimatedLink>
 				<AnimatedLink href='#contact'>CONTACT</AnimatedLink>
 			</ul>

@@ -7,6 +7,11 @@
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 20px;
+	transition: all 0.3s ease;
+}
+
+.container:hover {
+	border: 1px solid #c8c8c7;
 }
 
 .title {

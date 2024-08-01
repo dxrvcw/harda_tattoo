@@ -54,15 +54,7 @@ export function NavModal({ setOpen }: INavModalProps) {
 								PORTFOLIO
 							</a>
 						</li>
-						<li>
-							<a
-								className={styles.list_item}
-								href='#reviews'
-								onClick={() => setIsVisible(false)}
-							>
-								REVIEWS
-							</a>
-						</li>
+
 						<li>
 							<a
 								className={styles.list_item}

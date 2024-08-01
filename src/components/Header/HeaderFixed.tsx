@@ -28,9 +28,7 @@ export function HeaderFixed() {
 			<AnimatedLink href='#portfolio' className={styles.link_item}>
 				<p className={styles.link_item_text}>PORTFOLIO</p>
 			</AnimatedLink>
-			<AnimatedLink href='#reviews' className={styles.link_item}>
-				<p className={styles.link_item_text}>REVIEWS</p>
-			</AnimatedLink>
+
 			<AnimatedLink href='#pre-care' className={styles.link_item}>
 				<p className={styles.link_item_text}>PRE-CARE</p>
 			</AnimatedLink>

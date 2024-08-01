@@ -1,5 +1,6 @@
 import { About } from '@/components/About/About'
 import { Approach } from '@/components/Approach/Approach'
+import { Contact } from '@/components/Contact/Contact'
 import { HeaderHero } from '@/components/HeaderHero/HeaderHero'
 import { Portfolio } from '@/components/Portfolio/Portfolio'
 import { PreCare } from '@/components/PreCare/PreCare'
@@ -14,11 +15,13 @@ export default function Home() {
 			<About />
 			<Spacer height={70} />
 			<Portfolio />
-			<Spacer height={70} />
+			<Spacer height={100} />
 			<Approach />
-			<Spacer height={70} />
+			<Spacer height={120} />
 			<PreCare />
 			<Spacer height={250} />
+			<Contact />
+			<Spacer height={50} />
 		</main>
 	)
 }

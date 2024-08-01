@@ -12,7 +12,7 @@ export function About() {
 				height={400}
 				width={300}
 				className={styles.portrait}
-				inset={[50, 50, 50, 50]}
+				inset={[0, 0, 100, 0]}
 			/>
 			<Image
 				src={'/hey.svg'}

@@ -4,7 +4,7 @@
 	top: 0;
 	left: 0;
 	width: 100vw;
-	grid-template-columns: repeat(5, 1fr) 1.5fr;
+	grid-template-columns: repeat(4, 1fr) 1.5fr;
 	list-style: none;
 	background: var(--background-color);
 	z-index: 10;

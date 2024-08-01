@@ -29,7 +29,7 @@ export function GrowingImage({
 					opacity: 0,
 				}}
 				whileInView={{ clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 }}
-				transition={{ duration: 1 }}
+				transition={{ duration: 2 }}
 				viewport={{ once: true }}
 				className={styles.motion_wrapper}
 			>
