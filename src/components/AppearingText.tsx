@@ -7,6 +7,7 @@ interface AppearingTextProps {
 	className?: string
 	delay?: number
 	duration?: number
+	wholeDelay?: number
 }
 
 export function AppearingText({
@@ -14,6 +15,7 @@ export function AppearingText({
 	className,
 	delay = 0.02,
 	duration = 0.6,
+	wholeDelay = 0,
 }: AppearingTextProps) {
 	return (
 		<div className={className} style={{ overflow: 'hidden' }}>
@@ -23,7 +25,7 @@ export function AppearingText({
 					initial={{ y: '99.7%' }}
 					whileInView={{ y: 0 }}
 					viewport={{ once: true }}
-					transition={{ delay: index * delay, duration }}
+					transition={{ delay: wholeDelay + index * delay, duration }}
 					style={{ display: 'inline-block' }}
 				>
 					{char !== ' ' ? char : <>&nbsp;</>}

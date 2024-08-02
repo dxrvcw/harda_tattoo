@@ -1,0 +1,39 @@
+.container {
+	width: 100%;
+}
+
+.label,
+.additionalLabel {
+	font-size: 15px;
+	display: block;
+	font-weight: 500;
+}
+
+.additionalLabel {
+	margin-top: 10px;
+	color: rgb(157, 156, 155);
+	font-weight: 400;
+}
+
+.input {
+	margin-top: 13px;
+	height: 60px;
+	padding: 0 22px;
+	display: block;
+	border: none;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	background-color: rgb(240, 239, 237);
+	color: var(--text-color);
+	text-transform: uppercase;
+}
+
+.input:focus {
+	outline: none;
+}
+
+.fileButton:hover {
+	border-color: var(--accent-color) !important;
+	color: var(--accent-color) !important;
+}

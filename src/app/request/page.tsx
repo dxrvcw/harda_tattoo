@@ -1,3 +1,4 @@
+import { AppearingText } from '@/components/AppearingText'
 import { Header } from '@/components/Header/Header'
 import { HeaderFixed } from '@/components/Header/HeaderFixed'
 import { RequestForm } from '@/components/RequestForm/RequestForm'
@@ -14,8 +15,18 @@ export default function Page() {
 			<HeaderFixed requiredY={0} />
 			<Header showList={false} />
 			<div className={styles.text_container}>
-				<p className={styles.text}>SEND</p>
-				<p className={styles.text}>REQUEST</p>
+				<AppearingText
+					wholeDelay={0.7}
+					delay={0.1}
+					text='SEND'
+					className={styles.text}
+				/>
+				<AppearingText
+					wholeDelay={0.7}
+					delay={0.1}
+					text='REQUEST'
+					className={styles.text}
+				/>
 			</div>
 			<RequestForm />
 		</main>
