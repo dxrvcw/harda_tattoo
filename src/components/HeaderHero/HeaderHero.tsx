@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { AppearingText } from '../AppearingText'
 import { RequestLinkButton } from '../RequestLinkButton'
 import styles from './HeaderHero.module.css'
 
@@ -11,6 +12,7 @@ export function HeaderHero() {
 				className={styles.background_image}
 				alt='Background image'
 				src='/flower_tree.png'
+				priority
 				width={720}
 				height={720}
 			/>
@@ -31,12 +33,12 @@ export function HeaderHero() {
 			</div>
 			<div className={styles.footer}>
 				<div className={styles.footer_top}>
-					<span className={styles.footer_title}>HARDA</span>
+					<AppearingText text='HARDA' className={styles.footer_title} />
 					<span className={styles.footer_second_title}>
 						TATOO ARTIST <br /> BASED IN NOVYI ROZDIL
 					</span>
 				</div>
-				<p className={styles.footer_title}>TATTOO</p>
+				<AppearingText className={styles.footer_title} text='TATTOO' />
 			</div>
 		</section>
 	)

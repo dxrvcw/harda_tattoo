@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { AppearingText } from '../AppearingText'
 import { RequestLinkButton } from '../RequestLinkButton'
 import styles from './Contact.module.css'
 
@@ -42,8 +43,11 @@ export function Contact() {
 				<RequestLinkButton href='/request' text='SEND REQUEST' />
 			</article>
 			<div className={styles.big_words}>
-				<p className={styles.big_word + ' ' + styles.first_word}>HARDA</p>
-				<p className={styles.big_word}>TATTOO</p>
+				<AppearingText
+					text='HARDA'
+					className={styles.big_word + ' ' + styles.first_word}
+				/>
+				<AppearingText text='TATOO' className={styles.big_word} />
 			</div>
 		</section>
 	)

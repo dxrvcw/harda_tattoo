@@ -31,7 +31,7 @@
 	letter-spacing: -5px;
 	opacity: 0.6;
 	bottom: -180px;
-	line-height: 50px;
+	line-height: 55px;
 	left: 40px;
 }
 
@@ -68,7 +68,7 @@
 	}
 	.background_text {
 		font-size: 75px;
-		line-height: 60px;
+		line-height: 65px;
 	}
 }
 @media (width >= 530px) {
@@ -88,7 +88,7 @@
 	}
 	.background_text {
 		font-size: 125px;
-		line-height: 80px;
+		line-height: 85px;
 	}
 }
 @media (width >= 1024px) {
@@ -102,7 +102,7 @@
 	}
 	.background_text {
 		font-size: 140px;
-		line-height: 100px;
+		line-height: 110px;
 	}
 }
 @media (width >= 1220px) {
