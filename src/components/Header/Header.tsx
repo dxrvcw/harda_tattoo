@@ -10,7 +10,7 @@ export function Header({ showList }: { showList: boolean }) {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	return (
-		<header className={styles.header + ' container'}>
+		<header className={styles.header}>
 			<button
 				className={styles.open_button}
 				onClick={() => setIsModalOpen(true)}

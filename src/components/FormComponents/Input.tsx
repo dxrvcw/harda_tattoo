@@ -2,7 +2,7 @@ import { UploadOutlined } from '@ant-design/icons'
 import { Button, Upload } from 'antd'
 import styles from './Input.module.css'
 
-interface IInput {
+export interface IInput {
 	label: string
 	type?: string
 	name: string

@@ -27,9 +27,6 @@ export function TransitionLink({
 	const handleTransition = async (
 		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 	) => {
-		console.log('Pathname: ' + pathname)
-		console.log('href: ' + href)
-
 		if (pathname === href || href.startsWith(pathname + '#')) return
 
 		e.preventDefault()

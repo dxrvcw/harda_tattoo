@@ -1,14 +1,12 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { HiArrowLeft } from 'react-icons/hi'
-import { Button } from '../FormComponents/Button'
-import { Input } from '../FormComponents/Input'
+import { Form } from '../FormComponents/Form'
+import { IInput } from '../FormComponents/Input'
 import { RequestLinkButton } from '../RequestLinkButton'
 import styles from './RequestForm.module.css'
-
-interface IRequestForm {}
 
 interface IFormData {
 	fullName: string
@@ -22,6 +20,13 @@ interface IFormData {
 	phoneNumber: string
 	email: string
 	additionalInfo: string
+}
+
+interface IStep {
+	title: string
+	inputs: Omit<IInput, 'value' | 'onChange'>[]
+	buttonText: string
+	errorMessage: string
 }
 
 const initialFormData: IFormData = {
@@ -38,55 +43,154 @@ const initialFormData: IFormData = {
 	additionalInfo: '',
 }
 
-export function RequestForm({}: IRequestForm) {
-	const [step, setStep] = useState(1)
-	const [isFinished, setIsFinished] = useState(false)
+const steps: IStep[] = [
+	{
+		title: 'TO KNOW MORE ABOUT YOU',
+		inputs: [
+			{
+				label: 'WHAT IS YOUR FULL NAME?',
+				name: 'fullName',
+				placeholder: 'JANE DOE',
+				type: 'text',
+				required: true,
+			},
+			{
+				label: 'YOUR AGE?',
+				name: 'age',
+				placeholder: '18',
+				type: 'number',
+				required: true,
+			},
+		],
+		buttonText: 'NEXT: LET`S TALK ABOUT TATTOO',
+		errorMessage: 'PLEASE FILL IN ALL THE FIELDS. IT`S IMPORTANT FOR ME',
+	},
+	{
+		title: 'TO PLAN YOUR FUTURE TATTOO',
+		inputs: [
+			{
+				label: 'PLACEMENT FOR YOUR TATTOO',
+				name: 'placement',
+				placeholder: 'FOREARM, LOWER BACK...',
+				type: 'text',
+				required: true,
+			},
+			{
+				label: 'APPROX. SIZE IN CM',
+				name: 'size',
+				placeholder: '18',
+				type: 'number',
+				required: true,
+			},
+			{
+				label: 'DO YOU HAVE ANY SKIN DISEASES?',
+				name: 'diseases',
+				placeholder: 'NO / YES, ...',
+				type: 'text',
+				required: true,
+			},
+		],
+		buttonText: 'NEXT: TO CREATE YOUR DREAM TATTOO TOGETHER',
+		errorMessage: 'PLEASE FILL IN ALL THE FIELDS. IT`S IMPORTANT FOR ME',
+	},
+	{
+		title: 'TO CREATE YOUR DREAM TATTOO TOGETHER',
+		inputs: [
+			{
+				label: 'DESCRIBE YOUR IDEA',
+				name: 'idea',
+				placeholder:
+					'I WOULD LOVE TO HAVE A TATTOO OF A TREE WITH ROOTS THAT EXTEND INTO THE EARTH AND BRANCHES THAR REACH TOWARDS THE SKY...',
+				additionalLabel:
+					'PLEASE PROVIDE A DETAILED DESCRIPTION OF YOUR TATTOO IDEA SO WE CAN GIVE YOU A FASTER ESTIMATE ON AVAILABLE DATES AND TIMES.',
+				element: 'textarea',
+				required: true,
+			},
+			{
+				label: 'ATTACH REFERENCES SIMILAR TO YOUR IDEA',
+				name: 'ideaReferences',
+				additionalLabel:
+					'IT CAN BE ALSO FROM MY WORKS OR OTHER VISUAL REFERENCES THAT WILL HELP TO UNDERSTAND YOUR IDEA BETTER',
+				type: 'file',
+				required: true,
+			},
+		],
+		buttonText: 'NEXT: LET`S SCHEDULE AN APPOINTMENT',
+		errorMessage: 'PLEASE FILL IN ALL THE FIELDS. IT`S IMPORTANT FOR ME',
+	},
+	{
+		title: 'TO SCHEDULE YOUR APPOINTMENT WITH EASE',
+		inputs: [
+			{
+				label: 'WHEN WOULD YOU LIKE TO GET AN APPOINTMENT?',
+				name: 'appointmentTime',
+				placeholder: '22-27 OF AUGUST, I WOULD PREFER MONDAYS OR SUNDAYS',
+				element: 'textarea',
+				required: true,
+			},
+		],
+		buttonText: 'NEXT: LET`S SCHEDULE AN APPOINTMENT',
+		errorMessage: 'PLEASE FILL IN ALL THE FIELDS. IT`S IMPORTANT FOR ME',
+	},
+	{
+		title: 'AND FINALLY REACH YOU <3',
+		inputs: [
+			{
+				label: 'YOUR PHONE NUMBER',
+				name: 'phoneNumber',
+				placeholder: '+38 (012) 345 67 89',
+				type: 'text',
+				required: true,
+			},
+			{
+				label: 'YOUR EMAIL',
+				name: 'email',
+				placeholder: 'JANEDOE@GMAIL.COM',
+				type: 'text',
+				required: false,
+			},
+			{
+				label: 'ADDITIONAL INFORMATION',
+				name: 'additionalInfo',
+				placeholder: 'TELEGRAM, INSTAGRAM, WHATSAPP...',
+				type: 'text',
+				required: false,
+			},
+		],
+		buttonText: 'FINISH',
+		errorMessage: 'PLEASE FILL IN ALL THE FIELDS. IT`S IMPORTANT FOR ME',
+	},
+]
 
-	const [formData, setFormData] = useState<IFormData>(initialFormData)
+export function RequestForm() {
+	const [step, setStep] = useState(1)
+
+	const [formData, setFormData] = useState<IFormData & { [key: string]: any }>(
+		initialFormData
+	)
 	const [error, setError] = useState(false)
 
-	useEffect(() => {
-		console.log(formData)
-	}, [formData])
-
 	const nextStep = () => {
-		switch (step) {
-			case 1:
-				if (formData.age && formData.fullName) {
-					setStep(2)
-					setError(false)
-				} else setError(true)
-				break
-			case 2:
-				if (formData.placement && formData.size && formData.diseases) {
-					setStep(3)
-					setError(false)
-				} else setError(true)
-				break
-			case 3:
-				if (
-					formData.idea &&
-					formData.ideaReferences &&
-					formData.ideaReferences.length > 0
-				) {
-					setStep(4)
-					setError(false)
-				} else setError(true)
-				break
-			case 4:
-				if (formData.appointmentTime) {
-					setStep(5)
-					setError(false)
-				} else setError(true)
-				break
-			case 5:
-				if (formData.phoneNumber) {
-					setIsFinished(true)
-					setError(false)
-				} else setError(true)
-				break
+		const requiredFields = steps[step - 1].inputs
+			.filter(input => input.required)
+			.map(input => input.name)
+
+		if (
+			requiredFields.some(field => {
+				if (field === 'ideaReferences') {
+					return !formData[field]?.length
+				}
+				return !formData[field]
+			})
+		) {
+			setError(true)
+			return
 		}
+
+		setError(false)
+		setStep(step + 1)
 	}
+
 	const previousStep = () => {
 		setStep(prev => {
 			if (prev > 1) return prev - 1
@@ -94,7 +198,7 @@ export function RequestForm({}: IRequestForm) {
 		})
 	}
 
-	if (isFinished)
+	if (step > steps.length)
 		return (
 			<div className={styles.finish_container}>
 				<p className={styles.finish_title}>THANK YOU!</p>
@@ -108,9 +212,14 @@ export function RequestForm({}: IRequestForm) {
 
 	return (
 		<div className={styles.form_container}>
-			<div className={styles.progress_bar} style={{ width: step * 20 + '%' }} />
+			<div
+				className={styles.progress_bar}
+				style={{ width: (step * 100) / steps.length + '%' }}
+			/>
 			<div className={styles.step_text}>
-				<p>STEP {step}/5</p>
+				<p>
+					STEP {step}/{steps.length}
+				</p>
 				<AnimatePresence>
 					{step > 1 && (
 						<motion.button
@@ -126,178 +235,17 @@ export function RequestForm({}: IRequestForm) {
 					)}
 				</AnimatePresence>
 			</div>
-			<div className={styles.form}>
-				{step === 1 && (
-					<>
-						<p className={styles.form_title}>TO KNOW MORE ABOUT YOU</p>
-						<Input
-							label='WHAT IS YOUR FULL NAME?'
-							name='name'
-							placeholder='JANE DOE'
-							type='text'
-							required={true}
-							value={formData.fullName}
-							onChange={e =>
-								setFormData(prev => ({ ...prev, fullName: e.target.value }))
-							}
-						/>
-						<Input
-							label='YOUR AGE?'
-							name='age'
-							placeholder='18'
-							type='number'
-							required={true}
-							value={formData.age}
-							onChange={e =>
-								setFormData(prev => ({ ...prev, age: e.target.value }))
-							}
-						/>
-						<Button onClick={nextStep}>NEXT: LET`S TALK ABOUT TATTOO</Button>
-					</>
-				)}
-				{step === 2 && (
-					<>
-						<p className={styles.form_title}>TO PLAN YOUR FUTURE TATTOO</p>
-						<Input
-							label='PLACEMENT FOR YOUR TATTOO'
-							name='placement'
-							placeholder='FOREARM, LOWER BACK...'
-							type='text'
-							required={true}
-							value={formData.placement}
-							onChange={e =>
-								setFormData(prev => ({ ...prev, placement: e.target.value }))
-							}
-						/>
-						<Input
-							label='APPROX. SIZE  IN CM'
-							name='size'
-							placeholder='18'
-							type='number'
-							required={true}
-							value={formData.size}
-							onChange={e =>
-								setFormData(prev => ({ ...prev, size: e.target.value }))
-							}
-						/>
-						<Input
-							label='DO YOU HAVE ANY SKIN DISEASES?'
-							name='diseases'
-							placeholder='NO / YES, ...'
-							type='text'
-							required={true}
-							value={formData.diseases}
-							onChange={e =>
-								setFormData(prev => ({ ...prev, diseases: e.target.value }))
-							}
-						/>
-						<Button onClick={nextStep}>
-							NEXT: TO CREATE YOUR DREAM TATTOO TOGETHER
-						</Button>
-					</>
-				)}
-				{step === 3 && (
-					<>
-						<p className={styles.form_title}>
-							TO CREATE YOUR DREAM TATTOO TOGETHER
-						</p>
-						<Input
-							label='DESCRIBE YOUR IDEA'
-							name='idea'
-							placeholder='I WOULD LOVE TO HAVE A TATTOO OF A TREE WITH ROOTS THAT EXTEND INTO THE EARTH AND BRANCHES THAR REACH TOWARDS THE SKY...'
-							additionalLabel='PLEASE PROVIDE A DETAILED DESCRIPTION OF YOUR TATTOO IDEA SO WE CAN GIVE YOU A FASTER ESTIMATE ON AVAILABLE DATES AND TIMES.'
-							element='textarea'
-							required={true}
-							value={formData.idea}
-							onChange={e =>
-								setFormData(prev => ({ ...prev, idea: e.target.value }))
-							}
-						/>
-						<Input
-							label='ATTACH REFERENCES SIMILAR TO YOUR IDEA'
-							name='ideaReferences'
-							additionalLabel='IT CAN BE ALSO FROM MY WORKS OR OTHER VISUAL REFERENCES THAT WILL HELP TO UNDERSTAND YOUR IDEA BETTER'
-							required={true}
-							type='file'
-							onChange={e =>
-								setFormData(prev => ({ ...prev, ideaReferences: e.fileList }))
-							}
-						/>
-						<Button onClick={nextStep}>
-							NEXT: LET`S SCHEDULE AN APPOINTMENT
-						</Button>
-					</>
-				)}
-				{step === 4 && (
-					<>
-						<p className={styles.form_title}>
-							TO SCHEDULE YOUR APPOINTMENT WITH EASE
-						</p>
-						<Input
-							label='WHEN WOULD YOU LIKE TO GET AN APPOINTMENT?'
-							name='time'
-							placeholder='22-27 OF AUGUST, I WOULD PREFER MONDAYS OR SUNDAYS'
-							element='textarea'
-							required={true}
-							value={formData.appointmentTime}
-							onChange={e =>
-								setFormData(prev => ({
-									...prev,
-									appointmentTime: e.target.value,
-								}))
-							}
-						/>
-						<Button onClick={nextStep}>AND FINALLY REACH YOU</Button>
-					</>
-				)}
-				{step === 5 && (
-					<>
-						<p className={styles.form_title}>AND FINALLY REACH YOU {'<3'}</p>
-						<Input
-							label='YOUR PHONE NUMBER'
-							name='phoneNumber'
-							placeholder='+38 (012) 345 67 89'
-							type='text'
-							required={true}
-							value={formData.phoneNumber}
-							onChange={e =>
-								setFormData(prev => ({ ...prev, phoneNumber: e.target.value }))
-							}
-						/>
-						<Input
-							label='YOUR EMAIL'
-							name='email'
-							placeholder='JANEDOE@GMAIL.COM'
-							type='text'
-							required={false}
-							value={formData.email}
-							onChange={e =>
-								setFormData(prev => ({ ...prev, email: e.target.value }))
-							}
-						/>
-						<Input
-							label='ADDITIONAL INFORMATION'
-							name='additionalInfo'
-							placeholder='TELEGRAM, INSTAGRAM, WHATSAPP...'
-							type='text'
-							required={false}
-							value={formData.additionalInfo}
-							onChange={e =>
-								setFormData(prev => ({
-									...prev,
-									additionalInfo: e.target.value,
-								}))
-							}
-						/>
-						<Button onClick={nextStep}>FINISH</Button>
-					</>
-				)}
-				{error && (
-					<p className={styles.error_message}>
-						PLEASE FILL IN ALL THE FIELDS. IT`S IMPORTANT FOR ME
-					</p>
-				)}
-			</div>
+			<Form<IFormData>
+				key={steps[step - 1].title}
+				title={steps[step - 1].title}
+				buttonText={steps[step - 1].buttonText}
+				inputs={steps[step - 1].inputs}
+				isError={error}
+				onSubmit={nextStep}
+				formData={formData}
+				setFormData={setFormData}
+				errorMessage={steps[step - 1].errorMessage}
+			/>
 		</div>
 	)
 }
