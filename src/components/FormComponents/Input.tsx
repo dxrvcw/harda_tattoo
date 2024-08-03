@@ -60,7 +60,14 @@ export function Input({
 				/>
 			) : element === 'input' && type === 'file' ? (
 				<div style={{ marginTop: 13 }}>
-					<Upload onChange={onChange} listType='picture' id={name}>
+					<Upload
+						onChange={onChange}
+						listType='picture'
+						id={name}
+						multiple
+						maxCount={3}
+						accept='image/png, image/jpeg, image/webp, image/jpg, image/svg'
+					>
 						<Button icon={<UploadOutlined />} className={styles.fileButton}>
 							Upload
 						</Button>

@@ -15,7 +15,7 @@ interface IFormData {
 	size: string
 	diseases: string
 	idea: string
-	ideaReferences: FileList | null
+	ideaReferences: { originFileObj: File }[] | null
 	appointmentTime: string
 	phoneNumber: string
 	email: string
@@ -190,8 +190,21 @@ export function RequestForm() {
 		setStep(step + 1)
 
 		if (step === steps.length) {
-			// TODO: implement telegram bot logic
-			console.log('Sending data...')
+			const formDataToSend = new FormData()
+			for (const key in formData) {
+				if (key === 'ideaReferences' && formData.ideaReferences) {
+					for (const file of Array.from(formData.ideaReferences)) {
+						formDataToSend.append(key, file.originFileObj)
+					}
+				} else {
+					formDataToSend.append(key, formData[key])
+				}
+			}
+
+			fetch('/api/bot', {
+				method: 'POST',
+				body: formDataToSend,
+			})
 		}
 	}
 
