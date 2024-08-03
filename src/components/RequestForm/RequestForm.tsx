@@ -22,13 +22,6 @@ interface IFormData {
 	additionalInfo: string
 }
 
-interface IStep {
-	title: string
-	inputs: Omit<IInput, 'value' | 'onChange'>[]
-	buttonText: string
-	errorMessage: string
-}
-
 const initialFormData: IFormData = {
 	fullName: '',
 	age: '',
@@ -41,6 +34,13 @@ const initialFormData: IFormData = {
 	phoneNumber: '',
 	email: '',
 	additionalInfo: '',
+}
+
+interface IStep {
+	title: string
+	inputs: Omit<IInput, 'value' | 'onChange'>[]
+	buttonText: string
+	errorMessage: string
 }
 
 const steps: IStep[] = [
@@ -170,7 +170,7 @@ export function RequestForm() {
 	)
 	const [error, setError] = useState(false)
 
-	const nextStep = () => {
+	const nextStep = async () => {
 		const requiredFields = steps[step - 1].inputs
 			.filter(input => input.required)
 			.map(input => input.name)
@@ -186,9 +186,13 @@ export function RequestForm() {
 			setError(true)
 			return
 		}
-
 		setError(false)
 		setStep(step + 1)
+
+		if (step === steps.length) {
+			// TODO: implement telegram bot logic
+			console.log('Sending data...')
+		}
 	}
 
 	const previousStep = () => {
