@@ -1,3 +1,5 @@
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
 import './globals.css'
@@ -23,6 +25,8 @@ export default function RootLayout({
 			<body className={dmSans.className}>
 				<div className='transition' />
 				{children}
+				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	)
